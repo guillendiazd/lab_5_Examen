@@ -125,8 +125,10 @@ public class Login extends javax.swing.JFrame {
         Contrasena con = new Contrasena();
         int verif = con.conv(contra);
         if (verif == 1111) {
+            new Login().setVisible(false);
             Canvas fr = new Canvas(); 
             fr.setVisible(true);
+            
         } else {
             JOptionPane.showMessageDialog(this, "Error Contraseña Invalida!");
         }
@@ -143,7 +145,7 @@ public class Login extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -163,6 +165,7 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
+                
             }
         });
     }

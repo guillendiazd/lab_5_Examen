@@ -6,6 +6,7 @@
 package lab5_davidguillen;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -55,10 +56,24 @@ public class Canvas extends javax.swing.JFrame {
         jB_Guardar = new javax.swing.JButton();
         jCB_Partidos = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
+        jCB_Personas_Mod = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jCB_Personas_Eli = new javax.swing.JComboBox<>();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jCB_Personas_Rep = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane2StateChanged(evt);
+            }
+        });
 
         jLabel29.setText("Nombre Completo");
 
@@ -209,18 +224,85 @@ public class Canvas extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Agregar", jPanel4);
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setText("Persona a Modificar");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 845, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(jCB_Personas_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(jLabel1)))
+                .addContainerGap(437, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 421, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCB_Personas_Mod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(348, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Modificar", jPanel5);
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel3.setText("Persona a Eliminar ");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(214, 214, 214)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jCB_Personas_Eli, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(475, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCB_Personas_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(355, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Eliminar", jPanel6);
+
+        jLabel2.setText("Persona ");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jCB_Personas_Rep, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(539, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jCB_Personas_Rep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(385, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Reportes", jPanel7);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -300,40 +382,90 @@ public class Canvas extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_GuardarActionPerformed
 
     private void jB_GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_GuardarMouseClicked
-        String nombre,id,id_boletos, departamento;
+        String nombre,id,id_boletos, departamento, partido;
         int edad, dinero;
-        if (jRB_Empleado.isSelected()) {
-            nombre = jTF_Nombre.getText();
-            edad = Integer.parseInt(jTF_Edad.getText());
-            id = jTF_ID.getText();
-            id_boletos = jTF_IDB.getText();
-            departamento = jCB_Departamento.getSelectedItem().toString();
-            dinero = Integer.parseInt(jTF_Dinero.getText());
-            String empleo="";
-            JOptionPane.showInputDialog("Ingrese Empleo:", empleo);
-            lista.add(new Empleado(empleo, nombre, edad, id, id_boletos, departamento, dinero));
-        } else if (jRB_Estudiante.isSelected()) {
-            String carrera="";
-            nombre = jTF_Nombre.getText();
-            edad = Integer.parseInt(jTF_Edad.getText());
-            id = jTF_ID.getText();
-            id_boletos = jTF_IDB.getText();
-            departamento = jCB_Departamento.getSelectedItem().toString();
-            dinero = Integer.parseInt(jTF_Dinero.getText());
-            JOptionPane.showInputDialog("Ingrese Carrera:", carrera);
-            lista.add(new Estudiante(carrera, nombre, edad, id, id_boletos, departamento, dinero));
-        } else if (jRB_Politico.isSelected()) {
-            String partido;
-            partido = jCB_Partidos.getSelectedItem().toString();
-            nombre = jTF_Nombre.getText();
-            edad = Integer.parseInt(jTF_Edad.getText());
-            id = jTF_ID.getText();
-            id_boletos = jTF_IDB.getText();
-            departamento = jCB_Departamento.getSelectedItem().toString();
-            dinero = Integer.parseInt(jTF_Dinero.getText());
-            lista.add(new Politico(partido, nombre, edad, id, id_boletos, departamento, dinero));
+        String empleo = "";
+        String carrera = "";
+        try {
+            if (jRB_Empleado.isSelected()) {
+                nombre = jTF_Nombre.getText();
+                edad = Integer.parseInt(jTF_Edad.getText());
+                id = jTF_ID.getText();
+                id_boletos = jTF_IDB.getText();
+                departamento = jCB_Departamento.getSelectedItem().toString();
+                dinero = Integer.parseInt(jTF_Dinero.getText());
+                JOptionPane.showInputDialog("Ingrese Empleo:", empleo);
+                lista.add(new Empleado(empleo, nombre, edad, id, id_boletos, departamento, dinero));
+                JOptionPane.showMessageDialog(this, "Se ha agregado el contacto exitosamente");
+                jTF_Nombre.setText("");
+                jTF_Edad.setText("");
+                jTF_ID.setText("");
+                jTF_IDB.setText("");
+                jCB_Departamento.setSelectedIndex(0);
+                jTF_Dinero.setText("");
+                empleo = "";
+                carrera = "";
+                jCB_Partidos.setSelectedIndex(0);
+            } else if (jRB_Estudiante.isSelected()) {
+                nombre = jTF_Nombre.getText();
+                edad = Integer.parseInt(jTF_Edad.getText());
+                id = jTF_ID.getText();
+                id_boletos = jTF_IDB.getText();
+                departamento = jCB_Departamento.getSelectedItem().toString();
+                dinero = Integer.parseInt(jTF_Dinero.getText());
+                JOptionPane.showInputDialog("Ingrese Carrera:", carrera);
+                lista.add(new Estudiante(carrera, nombre, edad, id, id_boletos, departamento, dinero));
+                JOptionPane.showMessageDialog(this, "Se ha agregado el contacto exitosamente");
+                jTF_Nombre.setText("");
+                jTF_Edad.setText("");
+                jTF_ID.setText("");
+                jTF_IDB.setText("");
+                jCB_Departamento.setSelectedIndex(0);
+                jTF_Dinero.setText("");
+                empleo = "";
+                carrera = "";
+                jCB_Partidos.setSelectedIndex(0);
+            } else if (jRB_Politico.isSelected()) {
+                partido = jCB_Partidos.getSelectedItem().toString();
+                nombre = jTF_Nombre.getText();
+                edad = Integer.parseInt(jTF_Edad.getText());
+                id = jTF_ID.getText();
+                id_boletos = jTF_IDB.getText();
+                departamento = jCB_Departamento.getSelectedItem().toString();
+                dinero = Integer.parseInt(jTF_Dinero.getText());
+                lista.add(new Politico(partido, nombre, edad, id, id_boletos, departamento, dinero));
+                JOptionPane.showMessageDialog(this, "Se ha agregado el contacto exitosamente");
+                jTF_Nombre.setText("");
+                jTF_Edad.setText("");
+                jTF_ID.setText("");
+                jTF_IDB.setText("");
+                jCB_Departamento.setSelectedIndex(0);
+                jTF_Dinero.setText("");
+                empleo = "";
+                carrera = "";
+                jCB_Partidos.setSelectedIndex(0);
+            }
+            
+            
+        } catch (Exception e) {
+             e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos");
         }
+        
     }//GEN-LAST:event_jB_GuardarMouseClicked
+
+    private void jTabbedPane2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane2StateChanged
+        if (jTabbedPane2.getSelectedIndex() == 1 || jTabbedPane2.getSelectedIndex() == 2 || jTabbedPane2.getSelectedIndex() == 3) {
+            DefaultComboBoxModel modelo
+                    = new DefaultComboBoxModel();
+            for (Persona t : lista) {
+                modelo.addElement(t);
+            }
+            jCB_Personas_Mod.setModel(modelo);
+            jCB_Personas_Eli.setModel(modelo);
+            jCB_Personas_Rep.setModel(modelo);
+        }
+    }//GEN-LAST:event_jTabbedPane2StateChanged
 
     /**
      * @param args the command line arguments
@@ -346,7 +478,7 @@ public class Canvas extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -376,14 +508,20 @@ public class Canvas extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jCB_Departamento;
     private javax.swing.JComboBox<String> jCB_Departamento2;
     private javax.swing.JComboBox<String> jCB_Partidos;
+    private javax.swing.JComboBox<String> jCB_Personas_Eli;
+    private javax.swing.JComboBox<String> jCB_Personas_Mod;
+    private javax.swing.JComboBox<String> jCB_Personas_Rep;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -397,6 +535,8 @@ public class Canvas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JRadioButton jRB_Empleado;
     private javax.swing.JRadioButton jRB_Estudiante;
     private javax.swing.JRadioButton jRB_Politico;
