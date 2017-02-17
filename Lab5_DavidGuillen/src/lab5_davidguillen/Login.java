@@ -125,7 +125,6 @@ public class Login extends javax.swing.JFrame {
         Contrasena con = new Contrasena();
         int verif = con.conv(contra);
         if (verif == 1111) {
-            new Login().setVisible(false);
             Canvas fr = new Canvas(); 
             fr.setVisible(true);
             

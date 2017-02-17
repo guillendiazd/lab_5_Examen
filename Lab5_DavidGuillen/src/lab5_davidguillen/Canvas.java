@@ -81,6 +81,7 @@ public class Canvas extends javax.swing.JFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jCB_Personas_Rep = new javax.swing.JComboBox<>();
+        jB_Guardar_Eli = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jCB_Personas_Eli = new javax.swing.JComboBox<>();
@@ -405,15 +406,30 @@ public class Canvas extends javax.swing.JFrame {
 
         jLabel2.setText("Persona ");
 
+        jB_Guardar_Eli.setText("Guardar");
+        jB_Guardar_Eli.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jB_Guardar_EliMouseClicked(evt);
+            }
+        });
+        jB_Guardar_Eli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_Guardar_EliActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCB_Personas_Rep, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jB_Guardar_Eli)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCB_Personas_Rep, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -423,13 +439,15 @@ public class Canvas extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jCB_Personas_Rep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(96, 96, 96)
+                .addComponent(jB_Guardar_Eli)
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Reportes", jPanel7);
+        jTabbedPane2.addTab("Eliminar", jPanel7);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel3.setText("Persona a Eliminar ");
+        jLabel3.setText("Persona");
 
         jCB_Personas_Eli.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -463,13 +481,15 @@ public class Canvas extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(214, 214, 214)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jCB_Personas_Eli, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCB_Personas_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel3))))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -480,10 +500,10 @@ public class Canvas extends javax.swing.JFrame {
                 .addComponent(jCB_Personas_Eli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Eliminar", jPanel6);
+        jTabbedPane2.addTab("Reportes", jPanel6);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -675,7 +695,7 @@ public class Canvas extends javax.swing.JFrame {
                 departamento = jCB_Departamento_Mod.getSelectedItem().toString();
                 dinero = Integer.parseInt(jTF_Dinero_Mod.getText());
                 JOptionPane.showInputDialog("Ingrese Empleo:", empleo);
-                lista.add(clik, new Empleado(empleo, nombre, edad, id, id_boletos, departamento, dinero));
+                lista.set(clik, new Empleado(empleo, nombre, edad, id, id_boletos, departamento, dinero));
                 JOptionPane.showMessageDialog(this, "Se ha modificado el contacto exitosamente");
                 jTF_Nombre_Mod.setText("");
                 jTF_Edad_Mod.setText("");
@@ -695,7 +715,7 @@ public class Canvas extends javax.swing.JFrame {
                 departamento = jCB_Departamento_Mod.getSelectedItem().toString();
                 dinero = Integer.parseInt(jTF_Dinero_Mod.getText());
                 JOptionPane.showInputDialog("Ingrese Carrera:", carrera);
-                lista.add(clik, new Estudiante(carrera, nombre, edad, id, id_boletos, departamento, dinero));
+                lista.set(clik, new Estudiante(carrera, nombre, edad, id, id_boletos, departamento, dinero));
                 JOptionPane.showMessageDialog(this, "Se ha modificado el contacto exitosamente");
                 jTF_Nombre_Mod.setText("");
                 jTF_Edad_Mod.setText("");
@@ -715,7 +735,7 @@ public class Canvas extends javax.swing.JFrame {
                 id_boletos = jTF_IDB_Mod.getText();
                 departamento = jCB_Departamento_Mod.getSelectedItem().toString();
                 dinero = Integer.parseInt(jTF_Dinero_Mod.getText());
-                lista.add(clik, new Politico(partido, nombre, edad, id, id_boletos, departamento, dinero));
+                lista.set(clik, new Politico(partido, nombre, edad, id, id_boletos, departamento, dinero));
                 JOptionPane.showMessageDialog(this, "Se ha modificado el contacto exitosamente");
                 jTF_Nombre_Mod.setText("");
                 jTF_Edad_Mod.setText("");
@@ -744,14 +764,24 @@ public class Canvas extends javax.swing.JFrame {
                 s.getId(),
                 s.getId_boletos(),
                 s.getDepartamento(),
-                s.getDinero()
+                s.getDinero(),
             };
+            num++;
             DefaultTableModel modelo
                     = (DefaultTableModel) jTable1.getModel();
             modelo.addRow(newrow);
             jTable1.setModel(modelo);
         }
     }//GEN-LAST:event_jCB_Personas_EliItemStateChanged
+
+    private void jB_Guardar_EliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_Guardar_EliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jB_Guardar_EliActionPerformed
+
+    private void jB_Guardar_EliMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_Guardar_EliMouseClicked
+        int rec = jCB_Personas_Rep.getSelectedIndex();
+        lista.remove(rec);
+    }//GEN-LAST:event_jB_Guardar_EliMouseClicked
 
     /**
      * @param args the command line arguments
@@ -791,6 +821,7 @@ public class Canvas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jB_Guardar;
+    private javax.swing.JButton jB_Guardar_Eli;
     private javax.swing.JButton jB_Guardar_Mod;
     private javax.swing.JComboBox<String> jCB_Departamento;
     private javax.swing.JComboBox<String> jCB_Departamento2;
